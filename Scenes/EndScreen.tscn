@@ -1,0 +1,143 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://OrangeJuice100.tres" type="DynamicFont" id=1]
+[ext_resource path="res://OrangJuiceFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://4x/Asset 6@4x.png" type="Texture" id=3]
+[ext_resource path="res://GDScripts/EndScreen.gd" type="Script" id=4]
+[ext_resource path="res://GDScripts/Score.gd" type="Script" id=5]
+[ext_resource path="res://Styles/EndScreen.tres" type="StyleBox" id=6]
+[ext_resource path="res://4x/Asset 5@4x.png" type="Texture" id=7]
+[ext_resource path="res://y2mate.com - Bananarama Game Endscreen Music.mp3" type="AudioStream" id=8]
+[ext_resource path="res://GDScripts/REKOR.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://orange juice 2.0.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://orange juice 2.0.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 80
+extra_spacing_char = 10
+font_data = SubResource( 4 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://orange juice 2.0.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = SubResource( 6 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 324.0
+margin_top = 67.0
+margin_right = -324.0
+margin_bottom = -39.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+margin_right = 632.0
+margin_bottom = 614.0
+custom_constants/separation = 50
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_right = 632.0
+margin_bottom = 80.0
+custom_constants/separation = 70
+alignment = 1
+
+[node name="Label4" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+margin_left = 183.0
+margin_top = 10.0
+margin_right = 341.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 3 )
+text = "REKOR"
+align = 1
+
+[node name="Label3" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer3"]
+margin_left = 411.0
+margin_right = 449.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
+script = ExtResource( 9 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 130.0
+margin_right = 632.0
+margin_bottom = 230.0
+custom_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 13.0
+margin_top = 14.0
+margin_right = 471.0
+margin_bottom = 85.0
+custom_fonts/font = ExtResource( 1 )
+text = "YENİ SKORUNUZ"
+align = 1
+
+[node name="Score" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 571.0
+margin_right = 618.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 1
+script = ExtResource( 5 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 280.0
+margin_right = 632.0
+margin_bottom = 527.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Restrart" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 58.0
+margin_right = 308.0
+margin_bottom = 247.0
+custom_fonts/font = ExtResource( 2 )
+icon = ExtResource( 3 )
+flat = true
+
+[node name="Quit" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 358.0
+margin_right = 574.0
+margin_bottom = 247.0
+custom_fonts/font = ExtResource( 2 )
+icon = ExtResource( 7 )
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Restrart" to="." method="_on_Restrart_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]

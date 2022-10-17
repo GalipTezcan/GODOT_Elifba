@@ -1,0 +1,118 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Styles/EndScreen.tres" type="StyleBox" id=1]
+[ext_resource path="res://GDScripts/CardGrid.gd" type="Script" id=2]
+[ext_resource path="res://GDScripts/CountUp.gd" type="Script" id=3]
+[ext_resource path="res://4x/Asset 1@4x.png" type="Texture" id=4]
+[ext_resource path="res://4x/Asset 3@4x.png" type="Texture" id=5]
+[ext_resource path="res://OrangJuiceFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://4x/Asset 5@4x.png" type="Texture" id=7]
+[ext_resource path="res://y2mate.com - Kids Cartoon Background  Bee Flowers Grass Forest Trees Nature Free Download Royalty Free.mp3" type="AudioStream" id=8]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://orange juice 2.0.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://orange juice 2.0.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = SubResource( 4 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 113.0
+margin_top = 110.0
+margin_right = -347.0
+margin_bottom = -208.0
+custom_constants/vseparation = 200
+custom_constants/hseparation = 150
+columns = 6
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+Score = NodePath("../Node2D/ScoreLabel")
+
+[node name="CountUp" type="Timer" parent="Panel/GridContainer"]
+autostart = true
+script = ExtResource( 3 )
+CountUp = NodePath("CountUpLabel")
+
+[node name="Asset14x" type="Sprite" parent="Panel/GridContainer/CountUp"]
+position = Vector2( 1027.09, 80.0105 )
+scale = Vector2( 0.312249, 0.312249 )
+texture = ExtResource( 4 )
+
+[node name="CountUpLabel" type="RichTextLabel" parent="Panel/GridContainer/CountUp"]
+margin_left = 1101.0
+margin_top = 41.0
+margin_right = 1275.0
+margin_bottom = 131.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="Panel"]
+
+[node name="ScoreLabel" type="RichTextLabel" parent="Panel/Node2D"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 1101.0
+margin_top = 244.0
+margin_right = 1224.0
+margin_bottom = 331.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Asset24x" type="Sprite" parent="Panel/Node2D"]
+position = Vector2( 1028, 279 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 5 )
+
+[node name="Quit" type="Button" parent="Panel"]
+margin_left = 997.0
+margin_top = 393.0
+margin_right = 1213.0
+margin_bottom = 640.0
+rect_scale = Vector2( 0.6, 0.6 )
+custom_fonts/font = ExtResource( 6 )
+icon = ExtResource( 7 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+
+[connection signal="timeout" from="Panel/GridContainer/CountUp" to="Panel/GridContainer/CountUp" method="_on_Timer2_timeout"]
+[connection signal="pressed" from="Panel/Quit" to="Panel/GridContainer" method="_on_Quit_pressed"]

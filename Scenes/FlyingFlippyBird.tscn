@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Styles/EndScreen.tres" type="StyleBox" id=1]
+[ext_resource path="res://GDScripts/SpwanTimerFly.gd" type="Script" id=2]
+[ext_resource path="res://GDScripts/Plane.gd" type="Script" id=3]
+[ext_resource path="res://1x/Asset 83.png" type="Texture" id=4]
+[ext_resource path="res://4x/Asset 3@4x.png" type="Texture" id=5]
+[ext_resource path="res://y2mate.com - Kids Cartoon Background  Bee Flowers Grass Forest Trees Nature Free Download Royalty Free.mp3" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://orange juice 2.0.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 70
+font_data = SubResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 207, 276 )
+collision/safe_margin = 0.001
+script = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
+position = Vector2( 0, -1 )
+polygon = PoolVector2Array( 16, 10, -10, 42, -43, 12, -65, 20, -62, -11, -75, -48, 69, -31 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 0, -1 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 4 )
+
+[node name="ScoreAread" type="Area2D" parent="KinematicBody2D"]
+position = Vector2( 10, -326 )
+rotation = 1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D/ScoreAread"]
+position = Vector2( 234.87, -69.2688 )
+scale = Vector2( 0.150885, 1.35313 )
+polygon = PoolVector2Array( 385.255, 6.11008, 279.218, 112.53, 756.401, 108.096, 902.206, 65.2321 )
+
+[node name="AutoDestroyArea" type="Area2D" parent="."]
+position = Vector2( 0, -50 )
+rotation = 1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AutoDestroyArea"]
+position = Vector2( -201.589, 0 )
+scale = Vector2( 1.14417, 1 )
+polygon = PoolVector2Array( 2, 3, 2, 108, 1047, 113, 1047, -1 )
+
+[node name="SpwanTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+script = ExtResource( 2 )
+positons = NodePath("../Positions")
+
+[node name="ScoreLabel" type="RichTextLabel" parent="SpwanTimer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -126.0
+margin_top = 25.0
+margin_right = -3.0
+margin_bottom = 84.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Asset24x" type="Sprite" parent="SpwanTimer"]
+position = Vector2( 1114, 52 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 5 )
+
+[node name="Positions" type="Node2D" parent="."]
+position = Vector2( 1294, 0 )
+
+[node name="Position2D" type="Position2D" parent="Positions"]
+position = Vector2( 0, 78 )
+
+[node name="Position2D2" type="Position2D" parent="Positions"]
+position = Vector2( 0, 650 )
+
+[node name="AutoDestroyArea2" type="Area2D" parent="."]
+position = Vector2( 0, -50 )
+rotation = 1.5708
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AutoDestroyArea2"]
+position = Vector2( 890.359, -1216.81 )
+rotation = 1.5708
+scale = Vector2( 1.14417, 1 )
+polygon = PoolVector2Array( 2, 3, 2, 108, 1047, 113, 1047, -1 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[connection signal="tree_exited" from="KinematicBody2D" to="SpwanTimer" method="_on_KinematicBody2D_tree_exited"]
+[connection signal="area_entered" from="KinematicBody2D/ScoreAread" to="SpwanTimer" method="_on_ScoreAread_area_entered"]
+[connection signal="area_entered" from="AutoDestroyArea" to="KinematicBody2D" method="_on_AutoDestroyArea_area_entered"]
+[connection signal="timeout" from="SpwanTimer" to="SpwanTimer" method="_on_SpwanTimer_timeout"]
+[connection signal="area_entered" from="AutoDestroyArea2" to="KinematicBody2D" method="_on_AutoDestroyArea2_area_entered"]

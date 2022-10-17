@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Letter (9).mp3-5b318690da4a233d5d58470f7d741648.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Letter (9).mp3"
+dest_files=[ "res://.import/Letter (9).mp3-5b318690da4a233d5d58470f7d741648.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

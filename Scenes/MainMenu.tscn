@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Styles/EndScreen.tres" type="StyleBox" id=1]
+[ext_resource path="res://4x/Asset 5@4x.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/OrangeJuice100.tres" type="DynamicFont" id=3]
+[ext_resource path="res://GDScripts/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/Letter (1).mp3" type="AudioStream" id=5]
+[ext_resource path="res://4x/Asset 89.png" type="Texture" id=6]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 203.0
+margin_top = 64.0
+margin_right = 1483.0
+margin_bottom = 135.0
+custom_constants/shadow_offset_y = 10
+custom_fonts/font = ExtResource( 3 )
+text = "SES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="Panel/Label"]
+margin_left = 347.0
+margin_top = -4.0
+margin_right = 1000.0
+margin_bottom = 60.0
+custom_icons/grabber_highlight = ExtResource( 6 )
+custom_icons/grabber = ExtResource( 6 )
+min_value = -50.0
+max_value = 0.0
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -129.0
+margin_right = 166.0
+margin_bottom = 118.0
+rect_scale = Vector2( 0.5, 0.5 )
+icon = ExtResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Panel"]
+stream = ExtResource( 5 )
+autoplay = true
+
+[connection signal="ready" from="Panel/Label/HSlider" to="Panel" method="_on_HSlider_ready"]
+[connection signal="value_changed" from="Panel/Label/HSlider" to="Panel" method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="Panel/Button" to="Panel" method="_on_Button_pressed"]
