@@ -30,12 +30,11 @@ func _process(_delta):
 
 
 func _on_SpwanTimer_timeout():
-	intp+=2
+	intp+=3
+	
 	var spawning=willspawn.instance()
 	spawning._vel=spawningsvel
 	spawningsvel.x-=0.05
-	if spawningsvel.x<-3:
-		spawningsvel.x=-3
 	spawning.get_child(0).position.y-=intp
 	spawning.get_child(1).position.y+=intp
 	

@@ -19,7 +19,6 @@ func _ready():
 func _on_HSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),value)
 	Scores.SoundVolume=value
-	$AudioStreamPlayer.play()
 	pass # Replace with function body.
 
 

@@ -79,7 +79,7 @@ scale = Vector2( 1.45215, 1 )
 polygon = PoolVector2Array( 2, 3, 2, 108, 1047, 113, 1047, -1 )
 
 [node name="Positions" type="Node2D" parent="."]
-position = Vector2( 0, 758 )
+position = Vector2( -10, -34 )
 
 [node name="Position2D5" type="Position2D" parent="Positions"]
 position = Vector2( 261, 0 )

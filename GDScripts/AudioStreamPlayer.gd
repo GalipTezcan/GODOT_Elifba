@@ -18,6 +18,7 @@ func _ready():
 
 func _on_Area2D3_body_entered(body):
 	play()
+	Scores.score+=1
 	get_parent().get_child(0).visible=false
 	
 	pass # Replace with function body.

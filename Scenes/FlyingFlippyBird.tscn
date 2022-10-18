@@ -48,7 +48,7 @@ scale = Vector2( 0.150885, 1.35313 )
 polygon = PoolVector2Array( 385.255, 6.11008, 279.218, 112.53, 756.401, 108.096, 902.206, 65.2321 )
 
 [node name="AutoDestroyArea" type="Area2D" parent="."]
-position = Vector2( 0, -50 )
+position = Vector2( -189, -50 )
 rotation = 1.5708
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AutoDestroyArea"]
@@ -94,13 +94,19 @@ position = Vector2( 0, 650 )
 position = Vector2( 0, -50 )
 rotation = 1.5708
 
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="AutoDestroyArea2"]
+position = Vector2( 907.995, -1214 )
+rotation = 1.5708
+scale = Vector2( 1.14417, 1.14417 )
+polygon = PoolVector2Array( 2, 3, 2, 108, 1047, 113, 1047, -1 )
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AutoDestroyArea2"]
-position = Vector2( 890.359, -1216.81 )
+position = Vector2( 9.35748, -1222.91 )
 rotation = 1.5708
 scale = Vector2( 1.14417, 1 )
 polygon = PoolVector2Array( 2, 3, 2, 108, 1047, 113, 1047, -1 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
 

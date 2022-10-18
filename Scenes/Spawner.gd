@@ -9,7 +9,7 @@ export var vel=-300
 onready var posArray=[]
 onready var scorelabel=get_child(0)
 onready var Score=get_node("/root/Scores")
-onready var willspawnwall=preload("res://Scenes/letter2.tscn")
+onready var willspawnwall=preload("res://Scenes/Letter2.tscn")
 export (NodePath) var positons
 onready var poss= get_node(positons)
 var spawningsvel=Vector2(vel,0)
@@ -60,7 +60,7 @@ func _on_Timer_timeout():
 
 
 func _on_Timer2_timeout():
-	$Timer2.wait_time=rng.randi_range(2,3)
+	$Timer2.wait_time=rng.randi_range(7,10)
 	var spawning=willspawnwall.instance()
 	spawning._vel.x=vel
 	

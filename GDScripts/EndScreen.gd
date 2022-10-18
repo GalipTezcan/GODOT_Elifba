@@ -25,6 +25,7 @@ func _on_Restrart_pressed():
 
 func _on_Quit_pressed():
 	Scores.score=0
+	MusicController.playMusic()
 	get_tree().change_scene("res://Scenes/MainScene.tscn")
 	pass # Replace with function body.
 

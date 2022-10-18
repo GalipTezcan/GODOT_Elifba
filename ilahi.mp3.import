@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ilahi.mp3-5d79b1a05d260553bb1aec89307ef8cd.mp3str"
+
+[deps]
+
+source_file="res://ilahi.mp3"
+dest_files=[ "res://.import/ilahi.mp3-5d79b1a05d260553bb1aec89307ef8cd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

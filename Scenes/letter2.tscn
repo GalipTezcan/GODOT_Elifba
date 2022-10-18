@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://GDScripts/Wall.gd" type="Script" id=1]
+[ext_resource path="res://GDScripts/AudioStreamPlayer.gd" type="Script" id=1]
+[ext_resource path="res://GDScripts/Endlessletter.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/Letter (1).mp3" type="AudioStream" id=3]
 [ext_resource path="res://Letters/Letter (1).png" type="Texture" id=4]
-[ext_resource path="res://Sounds/Letter (1).mp3" type="AudioStream" id=5]
-[ext_resource path="res://GDScripts/AudioStreamPlayer.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 17, 44 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 298, 339 )
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="Area2D3" type="Area2D" parent="."]
 
@@ -22,9 +22,8 @@ position = Vector2( 3, -5 )
 shape = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D3"]
-stream = ExtResource( 5 )
-script = ExtResource( 6 )
+stream = ExtResource( 3 )
+script = ExtResource( 1 )
 
 [connection signal="body_entered" from="Area2D3" to="Area2D3/AudioStreamPlayer" method="_on_Area2D3_body_entered"]
-[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_Area2D3_body_entered"]
 [connection signal="finished" from="Area2D3/AudioStreamPlayer" to="Area2D3/AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]

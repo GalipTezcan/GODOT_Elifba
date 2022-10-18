@@ -9,7 +9,7 @@
 [ext_resource path="res://4x/Asset 98@4x.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 27.5, 52.5 )
+extents = Vector2( 27.5, 54.5 )
 
 [sub_resource type="PhysicsMaterial" id=7]
 friction = 0.0
@@ -31,7 +31,6 @@ margin_right = 1280.0
 margin_bottom = 720.0
 custom_styles/panel = ExtResource( 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -50,7 +49,7 @@ scale = Vector2( 0.409657, 0.409657 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( -1.5, -32.5 )
+position = Vector2( -1.5, -30.5 )
 shape = SubResource( 5 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -62,7 +61,7 @@ position = Vector2( 644, -2 )
 shape = SubResource( 6 )
 
 [node name="Asset84" type="Sprite" parent="StaticBody2D"]
-position = Vector2( 633.834, -8.43571 )
+position = Vector2( 633.834, -7.43567 )
 scale = Vector2( 0.246885, 0.305912 )
 texture = ExtResource( 7 )
 
@@ -95,7 +94,7 @@ texture = ExtResource( 2 )
 autostart = true
 
 [node name="AutoDestroyArea" type="Area2D" parent="."]
-position = Vector2( 0, -50 )
+position = Vector2( -55, -50 )
 rotation = 1.5708
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AutoDestroyArea"]

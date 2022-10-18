@@ -1,13 +1,17 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://GDScripts/Wall.gd" type="Script" id=1]
-[ext_resource path="res://1x/Asset 84.png" type="Texture" id=2]
+[ext_resource path="res://1x/Asset 102.png" type="Texture" id=2]
 [ext_resource path="res://GDScripts/picableLetter.gd" type="Script" id=3]
 [ext_resource path="res://Letters/Letter (1).png" type="Texture" id=4]
 [ext_resource path="res://Sounds/Letter (1).mp3" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 26.5, 437 )
+extents = Vector2( 58, 363.5 )
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 64.0
+height = 74.0
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 17, 44 )
@@ -15,6 +19,25 @@ extents = Vector2( 17, 44 )
 [node name="Node2D" type="Node2D"]
 position = Vector2( 298, 339 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -994.0 ]
+}
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2( 0, -600 )
+rotation = 3.14159
+
+[node name="Sprite" type="Sprite" parent="Area2D2"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 6, 73.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 2, -349 )
+rotation = 1.5708
+shape = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 0, 600 )
@@ -23,24 +46,18 @@ position = Vector2( 0, 600 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0.5, 0 )
+position = Vector2( 6, 73.5 )
 shape = SubResource( 1 )
 
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2( 0, -600 )
-
-[node name="Sprite" type="Sprite" parent="Area2D2"]
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2( 0.5, 0 )
-shape = SubResource( 1 )
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 2, -349 )
+rotation = 1.5708
+shape = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
 [node name="Area2D3" type="Area2D" parent="."]
-visible = false
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Area2D3"]
@@ -50,6 +67,7 @@ texture = ExtResource( 4 )
 position = Vector2( 3, -5 )
 shape = SubResource( 2 )
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_Area2D3_body_entered"]

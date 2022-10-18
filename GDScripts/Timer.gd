@@ -12,7 +12,6 @@ onready var Score=get_node("/root/Scores")
 func _ready():
 	
 	for node in poss.get_children():
-		print(node)
 		posArray.append(node)
 func _process(_delta):
 	if scorelabel.text!=str(Score.score):
@@ -24,8 +23,8 @@ func _process(_delta):
 onready var lastpositon=0
 func _on_SpwanTimer_timeout():
 	var spawning=willspawn.instance()
-	if spawning.get_child(0).linear_velocity.y <400:
-		spawning.get_child(0).linear_velocity.y+=20
+	if spawning.get_child(0).linear_velocity.y >-400:
+		spawning.get_child(0).linear_velocity.y-=20
 	rng.randomize()
 	spawning.get_child(0).get_child(0).texture_normal=load("res://LettersforCatching/Letter ("+str(rng.randi_range(1,35))+").png")
 	
