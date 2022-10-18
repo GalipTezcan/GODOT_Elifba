@@ -34,3 +34,13 @@ func _on_HSlider_ready():
 	print($Label/HSlider.value)
 	print(Scores.SoundVolume)
 	pass # Replace with function body.
+
+
+func _on_TextureButton_pressed():
+	OS.shell_open("https://github.com/GalipTezcan")
+	pass # Replace with function body.
+
+
+func _on_TextureButton2_pressed():
+	OS.shell_open("https://www.linkedin.com/in/galip-t-9520aa164")
+	pass # Replace with function body.

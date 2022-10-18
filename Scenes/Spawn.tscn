@@ -3,7 +3,7 @@
 [ext_resource path="res://Letters/Letter (1).png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30.5, 70 )
+extents = Vector2( 67.5, 61 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 609, -50 )
@@ -26,7 +26,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( -25.5, -31 )
+position = Vector2( -26, -31 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D/TextureButton" method="_on_RigidBody2D_body_entered"]

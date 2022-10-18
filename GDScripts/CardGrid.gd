@@ -49,7 +49,10 @@ func _process(delta):
 		get_tree().change_scene("res://Scenes/EndScreen.tscn")
 
 func _toggled(node):
-	toggledNodes.append(node)
+	if node in toggledNodes:
+		pass
+	else:
+		toggledNodes.append(node)
 	
 	if toggledNodes.size()==2:
 		var t = Timer.new()

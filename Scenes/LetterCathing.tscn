@@ -124,6 +124,8 @@ script = ExtResource( 9 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 4 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
+
 [connection signal="timeout" from="SpwanTimer" to="SpwanTimer" method="_on_SpwanTimer_timeout"]
 [connection signal="timeout" from="CountDown" to="CountDown" method="_on_Timer2_timeout"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]

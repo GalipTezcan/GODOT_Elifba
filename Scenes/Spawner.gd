@@ -22,8 +22,6 @@ func _ready():
 		var spawning=willspawn.instance()
 		spawning.get_child(0).linear_velocity.x=vel
 		vel-=20
-		inti+=1
-		inti=inti%28
 		spawning.position.x=1300+(i-1)*60
 		spawning.position.y=490
 		self.get_parent().call_deferred("add_child",spawning)
@@ -74,4 +72,3 @@ func _on_Timer2_timeout():
 	
 	
 	pass
-	pass # Replace with function body.

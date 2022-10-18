@@ -1,10 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Styles/EndScreen.tres" type="StyleBox" id=1]
 [ext_resource path="res://4x/Asset 5@4x.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/OrangeJuice100.tres" type="DynamicFont" id=3]
 [ext_resource path="res://GDScripts/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://4x/25231.png" type="Texture" id=5]
 [ext_resource path="res://4x/Asset 89.png" type="Texture" id=6]
+[ext_resource path="res://4x/174857.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://orange juice 2.0.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 70
+extra_spacing_char = 10
+font_data = SubResource( 4 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -64,6 +74,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label2" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -488.0
+margin_top = -47.0
+margin_right = 488.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 5 )
+text = "Geliştiriciyle iletişim için:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="Panel/Label2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 53.0
+margin_top = 51.0
+margin_right = 565.0
+margin_bottom = 563.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton2" type="TextureButton" parent="Panel/Label2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -169.0
+margin_top = 57.0
+margin_right = 343.0
+margin_bottom = 569.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture_normal = ExtResource( 7 )
+
 [connection signal="ready" from="Panel/Label/HSlider" to="Panel" method="_on_HSlider_ready"]
 [connection signal="value_changed" from="Panel/Label/HSlider" to="Panel" method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="Panel/Button" to="Panel" method="_on_Button_pressed"]
+[connection signal="pressed" from="Panel/Label2/TextureButton" to="Panel" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Panel/Label2/TextureButton2" to="Panel" method="_on_TextureButton2_pressed"]
